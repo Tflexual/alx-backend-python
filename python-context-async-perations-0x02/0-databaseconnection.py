@@ -10,3 +10,12 @@ class DatabaseConnection:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.conn.close()  # always closes connection
+
+
+
+
+
+#with DatabaseConnection("my_database.db") as conn:
+ #   cursor = conn.cursor()
+  #  cursor.execute("SELECT * FROM users")
+   # print(cursor.fetchall())
