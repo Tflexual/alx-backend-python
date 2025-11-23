@@ -1,14 +1,7 @@
-from rest_framework import viewsets
-from .models import Conversation, Message
-from .permissions import IsParticipantOfConversation
-from .serializers import ConversationSerializer, MessageSerializer
-
-class ConversationViewSet(viewsets.ModelViewSet):
-    queryset = Conversation.objects.all()
-    serializer_class = ConversationSerializer
-    permission_classes = [IsParticipantOfConversation]
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
 
 class MessageViewSet(viewsets.ModelViewSet):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
-    permission_classes = [IsParticipantOfConversation]
+    ...
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
+    filterset_class = MessageFilter
